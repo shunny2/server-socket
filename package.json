@@ -1,0 +1,24 @@
+{
+  "name": "web-chat-socket",
+  "version": "1.0.0",
+  "description": "Stream server for sending messages.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "Alexander Davis",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
+  }
+}
