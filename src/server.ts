@@ -1,11 +1,23 @@
-import dotenv from "dotenv";
+import { serverHttp } from "./http";
+import { config } from "./config";
+
+import mongoose, { connect } from "mongoose";
 
 import "./websocket";
 
-import { serverHttp } from "./http";
+import Logging from "./lib/logging";
 
-dotenv.config();
+const PORT = config.server.port;
+const MONGO_URI = config.mongo.uri;
 
-const PORT = process.env.PORT || 3335;
+mongoose.set("strictQuery", true);
+// mongoose.set('debug', true);
 
-serverHttp.listen(PORT, () => console.log(`[server]: Server is runing on port ${PORT}`));
+const main = async () => {
+    await connect(`${MONGO_URI}`);
+    Logging.info("[DATABASE]: You are connected to MongoDB!");
+}
+
+main().catch(err => Logging.error(err));
+
+serverHttp.listen(PORT, () => Logging.info(`[SERVER]: Server is runing on port ${PORT}`));
