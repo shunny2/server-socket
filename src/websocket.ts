@@ -3,17 +3,16 @@ import { io } from "./http";
 import { IUserModel, User } from "./models/User";
 import { Message } from "./models/Message";
 
-import Logging from "./lib/logging";
 import { config } from "./config";
+
+import Logging from "./lib/logging";
 
 const EVENTS = config.socket.events;
 
-io.on(EVENTS.connection, socket => {
+io.on(EVENTS.connection, (socket) => {
     Logging.info(`[IO]: Connection => User ${socket.id} has connected to the server!`);
 
     socket.on(EVENTS.user, async (data: IUserModel) => {
-        console.log("[SOCKET]: User =>", data);
-
         await User.findOne({ name: data.name })
             .then(async (user) => {
                 // If there is already a user I just change his socket id.
@@ -37,8 +36,6 @@ io.on(EVENTS.connection, socket => {
 
     // Send user message
     socket.on(EVENTS.message, async (data: any) => {
-        console.log("[SOCKET]: Chat.message =>", data);
-
         await User.findOne({ name: data.name })
             .then(async (user) => {
                 if (user)
@@ -51,6 +48,7 @@ io.on(EVENTS.connection, socket => {
 
     // Get all messages
     Message.find()
+        .populate("user", "_id name")
         .then((messages) => io.emit(EVENTS.allMessages, messages))
         .catch(err => Logging.error(err));
 
