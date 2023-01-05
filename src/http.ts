@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import { config } from "./config";
 
 const app = express();
-const ORIGIN = config.io.origin;
+const ORIGIN = config.socket.io.origin;
 
 const serverHttp = http.createServer(app);
 const io = new Server(serverHttp, { cors: { origin: ORIGIN } });

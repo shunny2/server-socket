@@ -4,14 +4,9 @@ import { IUserModel, User } from "./models/User";
 import { Message } from "./models/Message";
 
 import Logging from "./lib/logging";
+import { config } from "./config";
 
-const EVENTS = {
-    connection: "connection",
-    disconnect: "disconnect",
-    user: "user",
-    message: "chat.message",
-    allMessages: "chat.all.messages"
-};
+const EVENTS = config.socket.events;
 
 io.on(EVENTS.connection, socket => {
     Logging.info(`[IO]: Connection => User ${socket.id} has connected to the server!`);

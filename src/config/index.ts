@@ -11,6 +11,14 @@ const PORT = process.env.PORT || 3335;
 
 const IO_CORS_ORIGIN = "http://localhost:3000";
 
+const EVENTS = {
+    connection: "connection",
+    disconnect: "disconnect",
+    user: "user",
+    message: "chat.message",
+    allMessages: "chat.all.messages"
+};
+
 export const config = {
     mongo: {
         uri: MONGO_URI
@@ -18,7 +26,10 @@ export const config = {
     server: {
         port: PORT
     },
-    io: {
-        origin: IO_CORS_ORIGIN
+    socket: {
+        io: {
+            origin: IO_CORS_ORIGIN
+        },
+        events: EVENTS
     }
 }
