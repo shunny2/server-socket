@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#about-server-socket">About Server Socket</a>
+  <a href="#about-application">About Application</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technologies">Technologies</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -14,7 +14,7 @@
 
 <p align="center"><a href="https://nodejs.org/" target="_blank" title="NodeJS"><img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" width="125"></a></p>
 
-## About Server Socket
+## About Application
 
 Server Socket is a server that uses [socket.io](https://socket.io/) to exchange data in real time between users.
 
