@@ -15,6 +15,7 @@ const EVENTS = {
     connection: "connection",
     disconnect: "disconnect",
     user: "user",
+    onlineUsers: "online.users",
     message: "chat.message",
     allMessages: "chat.all.messages"
 };
