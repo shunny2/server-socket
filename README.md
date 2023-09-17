@@ -12,6 +12,8 @@
 
 </br>
 
+<p align="center"><a href="https://nodejs.org/" target="_blank" title="NodeJS"><img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" width="125"></a></p>
+
 ## About Server Socket
 
 Server Socket is a server that uses [socket.io](https://socket.io/) to exchange data in real time between users.
