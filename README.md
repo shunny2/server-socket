@@ -14,6 +14,12 @@
 
 <p align="center"><a href="https://nodejs.org/" target="_blank" title="NodeJS"><img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" width="125"></a></p>
 
+<p align="center">
+  <a href="https://img.shields.io/github/stars/shunny2/server-socket?style=social"><img src="https://img.shields.io/github/stars/shunny2/server-socket?style=social" alt="Repo Stars"/></a>
+  <a href="https://img.shields.io/github/forks/shunny2/server-socket?style=social"><img src="https://img.shields.io/github/forks/shunny2/server-socket?style=social" alt="Repo Forks"/></a>
+  <a href="https://img.shields.io/github/license/shunny2/server-socket?style=social"><img src="https://img.shields.io/github/license/shunny2/server-socket?style=social" alt="License"/></a>
+</p>
+
 ## About Application
 
 <b>Server Socket</b> is a server that uses the [socket.io](https://socket.io/) library to enable real-time data exchange between users, maintaining persistent connections that allow continuous and bidirectional communication.
@@ -60,7 +66,7 @@ npm run dev
 
 ## Project Status
 
-> Status: Developing.
+> Status: Completed.
 
 ## License
 
