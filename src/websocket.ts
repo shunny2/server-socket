@@ -9,7 +9,7 @@ import Logging from "./lib/logging";
 
 const EVENTS = config.socket.events;
 
-const onlineUsers = new Map(); // Map para mapear os IDs dos usuários para seus sockets
+const onlineUsers = new Map(); // Map to map user IDs to their sockets.
 
 io.on(EVENTS.connection, (socket) => {
     Logging.info("[IO]: A new connection has been established.");
@@ -17,14 +17,14 @@ io.on(EVENTS.connection, (socket) => {
     socket.on(EVENTS.user, async (data: IUserModel) => {
         Logging.info(`[SOCKET]: Connection => User ${socket.id} has connected to the server!`);
 
-        // Try to find the user in the list of online users by uuid
+        // Try to find the user in the list of online users by uuid.
         const existingSocket = onlineUsers.get(data.uuid);
 
         if (existingSocket)
-            // If the user is already online, you can update the associated socket
+            // If the user is already online, you can update the associated socket.
             existingSocket.socketId = socket.id;
         else
-            // If the user is not online, create a new record on the map
+            // If the user is not online, create a new record on the map.
             onlineUsers.set(data.uuid, {
                 socketId: socket.id,
                 userId: data.uuid,
@@ -67,15 +67,15 @@ io.on(EVENTS.connection, (socket) => {
             .catch(err => Logging.error(err));
     });
 
-    // Get all messages
+    // Get all messages.
     Message.find()
         .populate("user", "_id name")
         .then((messages) => io.emit(EVENTS.allMessages, messages))
         .catch(err => Logging.error(err));
 
-    // Disconnect event
+    // Disconnect event.
     socket.on(EVENTS.disconnect, async () => {
-        // Find the user record by socketId and remove it from map
+        // Find the user record by socketId and remove it from map.
         for (const [uuid, user] of onlineUsers.entries()) {
             if (user.socketId === socket.id) {
                 onlineUsers.delete(uuid);
