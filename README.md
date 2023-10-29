@@ -16,7 +16,7 @@
 
 ## About Application
 
-Server Socket is a server that uses [socket.io](https://socket.io/) to exchange data in real time between users.
+<b>Server Socket</b> is a server that uses the [socket.io](https://socket.io/) library to enable real-time data exchange between users, maintaining persistent connections that allow continuous and bidirectional communication.
 
 ## Technologies
 
