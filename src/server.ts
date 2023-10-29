@@ -11,7 +11,6 @@ const PORT = config.server.port;
 const MONGO_URI = config.mongo.uri;
 
 mongoose.set("strictQuery", true);
-// mongoose.set('debug', true);
 
 const main = async () => {
     await connect(`${MONGO_URI}`);
